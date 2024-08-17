@@ -5,6 +5,7 @@ from model import Story, Chapter
 from database import (
     fetch_all_stories,
     fetch_one_story,
+    fetch_one_chapter,
     create_story,
     add_chapter
 )
@@ -33,17 +34,24 @@ app.add_middleware(
 async def read_root():
     return {"Hello": "World"}
 
+@app.get("/api/chapter/{id}")
+async def get_chapter_by_id(id: int):
+    response = await fetch_one_chapter(id)
+    if response:
+        return response
+    raise HTTPException(404, f"There is no story with the title {id}")
+
 @app.get("/api/stories")
 async def get_stories():
     response = await fetch_all_stories()
     return response
 
-@app.get("/api/story/{title}", response_model=Story)
+@app.get("/api/story/{id}", response_model=Story)
 async def get_story_by_id(id):
-    response = await fetch_one_story(id)
+    response = await fetch_one_story(int(id))
     if response:
         return response
-    raise HTTPException(404, f"There is no story with the title {id}")
+    raise HTTPException(404, f"There is no story with the id {id}")
 
 # /api/story
 @app.post("/api/story/", response_model=Story)

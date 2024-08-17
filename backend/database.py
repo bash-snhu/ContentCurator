@@ -27,6 +27,10 @@ async def fetch_one_story(id):
     document = await collection.find_one({"id": id})
     return document
 
+async def fetch_one_chapter(id):
+    document = await collection.find_one({"id": int(id)})
+    return document
+
 async def create_story(story: dict):
     document = {"id": await get_next_id(), "title": story["title"], "description": story["description"]}
     result = await collection.insert_one(document)
