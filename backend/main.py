@@ -40,12 +40,12 @@ async def get_chapters(story_id: int):
     response = await fetch_all_chapters(int(story_id))
     return response
 
-@app.get("/api/chapter/{id}")
-async def get_chapter_by_id(id: int):
-    response = await fetch_one_chapter(id)
+@app.get("/api/story/{id}/chapter/{cid}", response_model = Chapter)
+async def get_chapter_by_id(id: int, cid: int):
+    response = await fetch_one_chapter(int(id), int(cid))
     if response:
         return response
-    raise HTTPException(404, f"There is no story with the title {id}")
+    raise HTTPException(404, f"There is no chapter {cid} in story {id}")
 
 @app.get("/api/stories")
 async def get_stories():

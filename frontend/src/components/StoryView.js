@@ -11,27 +11,28 @@ const StoryView = () => {
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/story/' + id)
-        .then(res => {
-            setStoryView(res.data)
-        })
+            .then(res => {
+                setStoryView(res.data)
+            })
     }, [id]);
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/story/' + id + '/chapters')
-        .then(res => {
-            setChapterView(res.data)
-        })
+            .then(res => {
+                setChapterView(res.data)
+            })
     }, [id]);
 
     return (
         <div>
             <div className='story-summary'>
-            <center><h1>{storyView.title}</h1></center>
-            <p><b>Description:</b> <em>{storyView.description}</em></p>
-            <p><b>Summary:</b> {storyView.summary}</p>
+                <h1 className='story-title'>{storyView.title}</h1>
+                <p><b>Description:</b> <em>{storyView.description}</em></p>
+                <p><b>Summary:</b> {storyView.summary}</p>
+                <p><b>Pairing:</b> Min Yoongi x Park Jimin</p>
             </div>
 
-            <ul class="chapters">
+            <ul className="chapters">
                 {chapters.map((chapter, index) => <ChapterSummary key={chapter.id} chapter={chapter} />)}
             </ul>
         </div>

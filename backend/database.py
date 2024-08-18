@@ -36,8 +36,8 @@ async def fetch_all_chapters(story_id):
         chapters.append(Chapter(**chapter))
     return chapters
 
-async def fetch_one_chapter(id):
-    document = await collection.find_one({"id": int(id)})
+async def fetch_one_chapter(id, chapter_index):
+    document = await chapter_collection.find_one({"story_id": int(id), "chapter_index": int(chapter_index)})
     return document
 
 async def create_story(story: dict):

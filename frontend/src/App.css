@@ -13,7 +13,7 @@ body {
 }
 
 header {
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 /* Links */
@@ -23,6 +23,11 @@ a, a:hover, a::after, a:visited {
   text-decoration: underline;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+a.block {
+  display: block;
+  text-decoration: none;
 }
 
 /* Main Nav */
@@ -59,4 +64,13 @@ ul.chapters {
   margin: 0;
   padding: 5px 20px;
   margin-top: 20px;
+}
+
+.story-summary {
+  padding: 20px;
+}
+
+.story-title {
+  text-align: center;
+  margin-bottom: 50px;
 }
