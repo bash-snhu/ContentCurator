@@ -4,6 +4,7 @@ from model import Story, Chapter
 client = motor.motor_asyncio.AsyncIOMotorClient('mongodb://localhost:27017/')
 database = client.Stories
 collection = database.Story
+chapter_collection = database.Chapter
 indexer = database.Index
 
 async def get_next_id():
@@ -26,6 +27,14 @@ async def fetch_all_stories():
 async def fetch_one_story(id):
     document = await collection.find_one({"id": id})
     return document
+
+async def fetch_all_chapters(story_id):
+    chapters = []
+    cursor = chapter_collection.find({"story_id": int(story_id)})
+    
+    async for chapter in cursor:
+        chapters.append(Chapter(**chapter))
+    return chapters
 
 async def fetch_one_chapter(id):
     document = await collection.find_one({"id": int(id)})

@@ -8,7 +8,7 @@ function Story(props) {
         .then(res => console.log(res.data)) }
 
     const storyId = "/story/" + props.story.id
-  
+    
     return (
         <div>
             <p>

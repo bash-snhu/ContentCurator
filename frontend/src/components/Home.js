@@ -4,14 +4,14 @@ import MainStories from './MainStories';
 
 const Home = () => {
     const [storyList, setStoryList] = useState([{}])
-
-    // Read all todos
+    
+    // Read all stories
     useEffect(() => {
         axios.get('http://localhost:8000/api/stories')
         .then(res => {
             setStoryList(res.data)
         })
-    });
+    }, []);
 
     return (
         <div>

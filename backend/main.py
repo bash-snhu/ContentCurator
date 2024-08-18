@@ -6,6 +6,7 @@ from database import (
     fetch_all_stories,
     fetch_one_story,
     fetch_one_chapter,
+    fetch_all_chapters,
     create_story,
     add_chapter
 )
@@ -33,6 +34,11 @@ app.add_middleware(
 @app.get("/")
 async def read_root():
     return {"Hello": "World"}
+
+@app.get("/api/story/{story_id}/chapters")
+async def get_chapters(story_id: int):
+    response = await fetch_all_chapters(int(story_id))
+    return response
 
 @app.get("/api/chapter/{id}")
 async def get_chapter_by_id(id: int):
