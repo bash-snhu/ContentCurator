@@ -9,7 +9,7 @@ function Header() {
                 {/* Logo */}
                 <div className="logo">
                     <img src="logo.png" alt="Logo" />
-                </div>  
+                </div>
 
                 {/* Main Navigation */}
                 <nav className="main-nav">

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import ChapterSummary from './ChapterSummary';
+import ChapterSummary from './Chapter/ChapterSummary';
 import axios from 'axios';
 
 const StoryView = () => {
@@ -9,6 +9,7 @@ const StoryView = () => {
     const [storyView, setStoryView] = useState([{}])
     const [chapters, setChapterView] = useState([{}])
 
+    // Pull story information
     useEffect(() => {
         axios.get('http://localhost:8000/api/story/' + id)
             .then(res => {
@@ -16,6 +17,7 @@ const StoryView = () => {
             })
     }, [id]);
 
+    // Pulls all chapters for the story
     useEffect(() => {
         axios.get('http://localhost:8000/api/story/' + id + '/chapters')
             .then(res => {
@@ -27,9 +29,8 @@ const StoryView = () => {
         <div>
             <div className='story-summary'>
                 <h1 className='story-title'>{storyView.title}</h1>
-                <p><b>Description:</b> <em>{storyView.description}</em></p>
                 <p><b>Summary:</b> {storyView.summary}</p>
-                <p><b>Pairing:</b> Min Yoongi x Park Jimin</p>
+                <p><b>Pairing:</b> {storyView.main_pairing}</p>
             </div>
 
             <ul className="chapters">

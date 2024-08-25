@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import MainStories from './MainStories';
+import MainStories from '../DisplayLists/MainStories';
 
 const Home = () => {
     const [storyList, setStoryList] = useState([{}])
-    
+
     // Read all stories
     useEffect(() => {
         axios.get('http://localhost:8000/api/stories')
-        .then(res => {
-            setStoryList(res.data)
-        })
+            .then(res => {
+                setStoryList(res.data)
+            })
+            .catch(err => {
+                console.error(err);
+            });
     }, []);
 
     return (
         <div>
-            <MainStories storyList={storyList}/>
+            {<MainStories storyList={storyList} />}
         </div>
     );
 };
