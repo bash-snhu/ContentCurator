@@ -7,7 +7,7 @@ const Home = () => {
 
     // Read all stories
     useEffect(() => {
-        axios.get('/api/stories')
+        axios.get('https://api.scale-bone.co/api/stories')
             .then(res => {
                 setStoryList(res.data)
             })
