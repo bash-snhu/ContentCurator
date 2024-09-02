@@ -11,7 +11,7 @@ const StoryView = () => {
 
     // Pull story information
     useEffect(() => {
-        axios.get('http://localhost:8000/api/story/' + id)
+        axios.get('https://api.scale-bone.co/api/story/' + id)
             .then(res => {
                 setStoryView(res.data)
             })
@@ -19,7 +19,7 @@ const StoryView = () => {
 
     // Pulls all chapters for the story
     useEffect(() => {
-        axios.get('http://localhost:8000/api/story/' + id + '/chapters')
+        axios.get('https://api.scale-bone.co/api/story/' + id + '/chapters')
             .then(res => {
                 setChapterView(res.data)
             })

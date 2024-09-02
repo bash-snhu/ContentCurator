@@ -9,7 +9,7 @@ const Home = () => {
 
     // Read all stories
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/story/theme/${theme}`)
+        axios.get(`https://api.scale-bone.co/api/story/theme/${theme}`)
             .then(res => {
                 setStoryList(res.data)
             })

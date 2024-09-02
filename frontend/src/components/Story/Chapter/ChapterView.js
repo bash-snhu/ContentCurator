@@ -7,7 +7,7 @@ export default function ChapterView() {
     const [chapterContents, setChapterContents] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/story/' + id + "/chapter/" + cid)
+        axios.get('https://api.scale-bone.co/api/story/' + id + "/chapter/" + cid)
             .then(res => {
                 setChapterContents(res.data)
             })

@@ -4,7 +4,7 @@ import { NavLink, Link } from 'react-router-dom'
 
 function Story(props) {
     const deleteStoryHandler = (title) => {
-        axios.delete(`http://localhost:8000/api/story/${title}`)
+        axios.delete(`https://api.scale-bone.co/api/story/${title}`)
             .then(res => console.log(res.data))
     }
 
