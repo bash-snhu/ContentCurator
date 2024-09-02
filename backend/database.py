@@ -1,7 +1,10 @@
 import motor.motor_asyncio
 from model import Story, Chapter
+from dotenv import dotenv_values
 
-client = motor.motor_asyncio.AsyncIOMotorClient('mongodb://localhost:27017/')
+config = dotenv_values(".env")
+
+client = motor.motor_asyncio.AsyncIOMotorClient(config["DATABASE_URL"])
 database = client.Stories
 collection = database.Story
 chapter_collection = database.Chapter
