@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        < Header />
+        <Header/>
 
         <Routes>
           <Route index element={<Home />}></Route>

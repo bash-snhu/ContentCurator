@@ -15,8 +15,6 @@ body {
 
 .App {
   font-family: "Source Code Pro";
-
-  width: 800px;
   margin: 0 auto;
 }
 
@@ -25,7 +23,10 @@ header {
 }
 
 /* Links */
-a, a:hover, a::after, a:visited {
+a,
+a:hover,
+a::after,
+a:visited {
   color: #fff;
   text-decoration: none;
   text-decoration: underline;
@@ -84,7 +85,7 @@ ul.chapters {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
