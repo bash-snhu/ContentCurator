@@ -7,7 +7,7 @@ const Home = () => {
 
     // Read all stories
     useEffect(() => {
-        axios.get('http://localhost:8000/api/stories')
+        axios.get('/api/stories')
             .then(res => {
                 setStoryList(res.data)
             })

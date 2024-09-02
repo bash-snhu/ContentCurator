@@ -21,6 +21,8 @@ app = FastAPI()
 origins = [
     "http://localhost:3000",
     "http://localhost:3001",
+    "http://cctv.scale-bone.co:3001",
+    "http://cctv.scale-bone.co",
 ]
 
 # what is a middleware? 
