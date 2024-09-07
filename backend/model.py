@@ -43,5 +43,6 @@ class Fandom(BaseModel):
     type: str
     title_en: str
     title_orig: str
+    story_count: int
 
 

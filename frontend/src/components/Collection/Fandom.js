@@ -6,10 +6,10 @@ function Story(props) {
     const fandomId = "/story/" + props.fandom.id
 
     return (
-        <div className='story-entry'>
+        <div className='fandom-entry'>
             <h2><Link to={fandomId}>{props.fandom.title_en} | {props.fandom.title_orig}</Link></h2>
-            <h2></h2>
-        </div >
+            <h2>Type: {props.fandom.type} | Count: {props.fandom.story_count}</h2>
+        </div>
     )
 }
 

@@ -83,11 +83,16 @@ ul.chapters {
   margin-top: 20px;
 }
 
-.story-entry {
+.story-entry,
+.fandom-entry {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 50px;
+}
+
+.fandom-entry {
+  font-size: 10px;
 }
 
 a.main-pairing-block {
