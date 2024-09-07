@@ -10,6 +10,25 @@ body {
   padding: 0;
 }
 
+/* TEST */
+
+.cut-out {
+  display: flex;
+  margin-left: -35px;
+  margin-right: -35px;
+}
+
+.cut {
+  width: 25px;
+  height: 25px;
+  background-color: #efefef;
+  transform: rotate(46deg);
+}
+
+.sep {
+  flex-grow: 1;
+}
+
 .App {
   font-family: "Inter";
   margin: 0 auto;
@@ -97,6 +116,7 @@ ul.chapters {
 
 a.main-pairing-block {
   margin-right: 20px;
+  font-size: 15px;
 }
 
 .story-entry .main-pairing {
@@ -109,7 +129,31 @@ a.main-pairing-block {
 }
 
 .story-summary {
-  padding: 20px;
+  padding: 10px 20px;
+  /* margin: 10px -20px; */
+  border-left: 10px solid #fff333;
+  /* border-right: 5px solid #fff333; */
+}
+
+.story-title-block {
+  display: flex;
+}
+
+.story-block-title {
+  margin-top: 10px;
+}
+
+.badges {
+  display: flex;
+}
+
+.title-badge {
+  border: 2px solid #333;
+  padding: 0;
+  padding: 2px;
+  height: 22px;
+  border-radius: 5px;
+  margin: 0;
 }
 
 .story-title {
@@ -137,7 +181,25 @@ code {
   padding: 0;
 }
 
+.story-list {
+  display: flex;
+  margin-top: 20px;
+}
+
+.bar-right {
+  border-right: 1px solid #000;
+  padding-right: 20px;
+}
+
+.story-entry h3.att-headers {
+  border-bottom: 1px solid #e8e8e8;
+  margin: 20px 0px 10px 0px;
+  padding-bottom: 5px;
+  font-size: 15px;
+}
+
 .att-list li {
+  font-size: 12px;
   list-style-type: none;
   padding: 5px 10px;
   margin-right: 10px;

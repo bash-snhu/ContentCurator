@@ -22,6 +22,7 @@ class Story(BaseModel):
     _id: Optional[PyObjectId] = Field(alias="_id", default=None)
     id: int
     title: str
+    fandom: str
     lang: str
     main_pairing: list[str]
     accessory_pairings: list[str]
