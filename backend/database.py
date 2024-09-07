@@ -1,5 +1,5 @@
 import motor.motor_asyncio
-from model import Story, Chapter
+from model import Fandom, Story, Chapter
 from dotenv import dotenv_values
 
 config = dotenv_values(".env")
@@ -9,6 +9,13 @@ database = client.Stories
 collection = database.Story
 chapter_collection = database.Chapter
 indexer = database.Index
+
+# Collector dbs
+collector = client.Collections
+fan_col = collector.Fandoms
+char_col = collector.Characters
+pair_col = collector.Pairings
+tag_col = collector.Tags
 
 # Get next id for new story
 async def get_next_id():
@@ -67,6 +74,12 @@ async def fetch_story_by_theme(theme: str):
         chapters.append(Story(**chapter))
     return chapters
 
+async def fetch_all_fandoms():
+    fandoms = []
+    cursor = fan_col.find({})
+    async for document in cursor:
+        fandoms.append(Fandom(**document))
+    return fandoms
 
 # async def update_todo(title, desc):
 #     await collection.update_one({"title": title}, {"$set": {"description": desc}})

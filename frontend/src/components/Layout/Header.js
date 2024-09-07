@@ -1,5 +1,6 @@
 import React from "react";
 import Control from "./Control";
+import { Link } from "react-router-dom";
 
 function Header() {
     return (
@@ -7,22 +8,23 @@ function Header() {
             {/* Header Wrapper */}
             <div className="header-container">
                 {/* Logo */}
-                <div className="logo">
+                {/* <div className="logo">
                     <img src="logo.png" alt="Logo" />
-                </div>
+                </div> */}
 
                 {/* Main Navigation */}
                 <nav className="main-nav">
+                    <Link to="/" className="header-title">ContentCurator</Link>
                     <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about">About</a></li>
-                        <li><a href="/sevice">Services</a></li>
-                        <li><a href="/contact">Contact</a></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/collection/fandoms/">Browse</Link></li>
+                        <li><Link to="/">Favorites</Link></li>
+                        <li><Link to="/">Profile</Link></li>
                     </ul>
                 </nav>
             </div>
 
-            < Control />
+            {/* < Control /> */}
         </header>
     )
 }

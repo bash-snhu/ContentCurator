@@ -4,6 +4,14 @@ import { useState, useEffect } from 'react';
 import ChapterSummary from './Chapter/ChapterSummary';
 import axios from 'axios';
 
+// Serve URL based on development environment
+let story_url = ""
+if (process.env.NODE_ENV === "development") {
+    story_url = "http://localhost:8000/api/story/";
+} else {
+    story_url = "https://api.scale-bone.co/api/story/"
+}
+
 const StoryView = () => {
     const { id } = useParams();
     const [storyView, setStoryView] = useState([{}])
@@ -11,7 +19,7 @@ const StoryView = () => {
 
     // Pull story information
     useEffect(() => {
-        axios.get('https://api.scale-bone.co/api/story/' + id)
+        axios.get(story_url + id)
             .then(res => {
                 setStoryView(res.data)
             })
@@ -19,7 +27,7 @@ const StoryView = () => {
 
     // Pulls all chapters for the story
     useEffect(() => {
-        axios.get('https://api.scale-bone.co/api/story/' + id + '/chapters')
+        axios.get(story_url + id + '/chapters')
             .then(res => {
                 setChapterView(res.data)
             })

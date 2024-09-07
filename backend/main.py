@@ -1,8 +1,9 @@
 from fastapi import FastAPI, HTTPException
 
-from model import Story, Chapter
+from model import Story, Chapter, Fandom
 
 from database import (
+    fetch_all_fandoms,
     fetch_all_stories,
     fetch_one_story,
     fetch_one_chapter,
@@ -20,6 +21,7 @@ app = FastAPI()
 
 origins = [
     "https://cctv.scale-bone.co",
+    "http://localhost:3000"
 ]
 
 # what is a middleware? 
@@ -71,6 +73,14 @@ async def get_story_by_theme(theme: str):
     if response:
         return response
     raise HTTPException(404, f"There is no story with the theme {theme}")
+
+# Collections
+@app.get("/api/collection/fandoms/", response_model=List[Fandom])
+async def get_all_fandoms():
+    response = await fetch_all_fandoms()
+    # Sort ascending by title
+    response.sort(key=lambda x: x.title_en)
+    return response
 
 # @app.put("/api/story/{id}/", response_model=Story)
 # async def put_story(title: str, desc: str):
