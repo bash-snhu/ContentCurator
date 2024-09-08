@@ -14,7 +14,7 @@ function Header() {
 
                 {/* Main Navigation */}
                 <nav className="main-nav">
-                    <Link to="/" className="header-title">ContentCurator</Link>
+                    <Link to="/" className="header-title">Content<strong>Curator</strong></Link>
                     <ul>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/collection/fandoms/">Browse</Link></li>
@@ -25,7 +25,7 @@ function Header() {
             </div>
 
             {/* < Control /> */}
-        </header>
+        </header >
     )
 }
 
