@@ -8,6 +8,7 @@ function Story(props) {
 
     return (
         <div className='story-entry'>
+            {process.env.NODE_ENV}
             <div className="section1">
                 <div className="story-title-block">
                     <h2 className='story-block-title'>
