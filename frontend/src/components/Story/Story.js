@@ -33,7 +33,7 @@ function Story(props) {
             <div className="triangle-clipped"></div>
 
             <div className="section2">
-                <p class="story-summary"><strong>Summary:</strong> {props.story.summary}</p>
+                <p className="story-summary"><strong>Summary:</strong> {props.story.summary}</p>
             </div>
 
             <div className="triangle-clipped"></div>
